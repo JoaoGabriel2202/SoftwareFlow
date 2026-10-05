@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SoftwareFlow - Gestão da Produção de Software
+    </title>
+
+    <!-- ARQUIVO CSS -->
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         MENU LATERAL
+    ========================================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                S
+            </div>
+
+            <div>
+                <h2>SoftwareFlow</h2>
+
+                <p>
+                    Gestão da Produção
+                </p>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="menu-item active"
+                data-page="dashboard"
+                type="button"
+            >
+                🏠 Dashboard
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="nova"
+                type="button"
+            >
+                ➕ Nova Solicitação
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="projetos"
+                type="button"
+            >
+                📁 Projetos
+            </button>
+
+
+            <button
+                class="menu-item"
+                data-page="quadro"
+                type="button"
+            >
+                📋 Quadro de Produção
+            </button>
+
+        </nav>
+
+
+        <div class="usuario">
+
+            <div class="avatar">
+                JG
+            </div>
+
+            <div>
+                <strong>
+                    Equipe
+                </strong>
+
+                <p>
+                    SoftwareFlow
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+
+    <main class="conteudo">
+
+
+        <!-- CABEÇALHO -->
+
+        <header class="topo">
+
+            <div>
+
+                <h1 id="tituloPagina">
+                    Dashboard
+                </h1>
+
+                <p id="subtituloPagina">
+                    Visão geral da produção de software
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn-primary"
+                id="btnNova"
+                type="button"
+            >
+                + Nova Solicitação
+            </button>
+
+        </header>
+
+
+
+        <!-- ========================================
+             DASHBOARD
+        ========================================= -->
+
+        <section
+            id="dashboard"
+            class="pagina ativa"
+        >
+
+            <!-- CARDS -->
+
+            <div class="cards">
+
+
+                <div class="card-info">
+
+                    <p>
+                        Projetos
+                    </p>
+
+                    <h2 id="totalProjetos">
+                        0
+                    </h2>
+
+                    <span>
+                        Total cadastrado
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-info">
+
+                    <p>
+                        Em andamento
+                    </p>
+
+                    <h2 id="emAndamento">
+                        0
+                    </h2>
+
+                    <span>
+                        Projetos ativos
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-info">
+
+                    <p>
+                        Em testes
+                    </p>
+
+                    <h2 id="emTestes">
+                        0
+                    </h2>
+
+                    <span>
+                        Aguardando validação
+                    </span>
+
+                </div>
+
+
+
+                <div class="card-info">
+
+                    <p>
+                        Concluídos
+                    </p>
+
+                    <h2 id="concluidos">
+                        0
+                    </h2>
+
+                    <span>
+                        Projetos entregues
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- GRÁFICO + PROGRESSO -->
+
+            <div class="dashboard-grid">
+
+
+                <div class="painel">
+
+                    <h2>
+                        Visão da Produção
+                    </h2>
+
+                    <p class="descricao">
+                        Distribuição dos projetos por etapa
+                    </p>
+
+                    <div
+                        id="grafico"
+                        class="grafico"
+                    >
+                    </div>
+
+                </div>
+
+
+
+                <div class="painel">
+
+                    <h2>
+                        Progresso Geral
+                    </h2>
+
+                    <p class="descricao">
+                        Situação atual dos projetos
+                    </p>
+
+
+                    <div class="circulo-progresso">
+
+                        <strong id="progressoGeral">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROJETOS RECENTES -->
+
+            <div class="painel">
+
+
+                <div class="painel-cabecalho">
+
+                    <div>
+
+                        <h2>
+                            Projetos Recentes
+                        </h2>
+
+                        <p class="descricao">
+                            Últimas solicitações cadastradas
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="btn-link"
+                        data-ir="projetos"
+                        type="button"
+                    >
+                        Ver todos
+                    </button>
+
+                </div>
+
+
+
+                <div class="tabela-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Projeto
+                                </th>
+
+                                <th>
+                                    Solicitante
+                                </th>
+
+                                <th>
+                                    Responsável
+                                </th>
+
+                                <th>
+                                    Prioridade
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Prazo
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="tabelaRecentes">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             NOVA SOLICITAÇÃO
+        ========================================= -->
+
+        <section
+            id="nova"
+            class="pagina"
+        >
+
+
+            <div class="painel formulario-painel">
+
+
+                <h2>
+                    Nova Solicitação
+                </h2>
+
+
+                <p class="descricao">
+                    Cadastre uma nova demanda para a equipe de desenvolvimento.
+                </p>
+
+
+
+                <form id="formProjeto">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- NOME -->
+
+                        <label class="campo-grande">
+
+                            Nome do projeto
+
+                            <input
+                                type="text"
+                                id="nome"
+                                placeholder="Ex: Sistema de Biblioteca"
+                                required
+                            >
+
+                        </label>
+
+
+
+                        <!-- SOLICITANTE -->
+
+                        <label>
+
+                            Solicitante
+
+                            <input
+                                type="text"
+                                id="solicitante"
+                                placeholder="Nome ou setor"
+                                required
+                            >
+
+                        </label>
+
+
+
+                        <!-- RESPONSÁVEL -->
+
+                        <label>
+
+                            Responsável
+
+                            <input
+                                type="text"
+                                id="responsavel"
+                                placeholder="Responsável pelo projeto"
+                                required
+                            >
+
+                        </label>
+
+
+
+                        <!-- PRIORIDADE -->
+
+                        <label>
+
+                            Prioridade
+
+                            <select id="prioridade">
+
+                                <option value="Baixa">
+                                    Baixa
+                                </option>
+
+                                <option
+                                    value="Média"
+                                    selected
+                                >
+                                    Média
+                                </option>
+
+                                <option value="Alta">
+                                    Alta
+                                </option>
+
+                            </select>
+
+                        </label>
+
+
+
+                        <!-- PRAZO -->
+
+                        <label>
+
+                            Prazo
+
+                            <input
+                                type="date"
+                                id="prazo"
+                                required
+                            >
+
+                        </label>
+
+
+
+                        <!-- DESCRIÇÃO -->
+
+                        <label class="campo-grande">
+
+                            Descrição
+
+                            <textarea
+                                id="descricao"
+                                rows="5"
+                                placeholder="Descreva a necessidade do projeto..."
+                                required
+                            ></textarea>
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- BOTÕES -->
+
+                    <div class="acoes-form">
+
+                        <button
+                            type="reset"
+                            class="btn-secondary"
+                        >
+                            Limpar
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn-primary"
+                        >
+                            Cadastrar Solicitação
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             PROJETOS
+        ========================================= -->
+
+        <section
+            id="projetos"
+            class="pagina"
+        >
+
+
+            <div class="painel">
+
+
+                <div class="painel-cabecalho">
+
+
+                    <div>
+
+                        <h2>
+                            Projetos
+                        </h2>
+
+                        <p class="descricao">
+                            Todas as solicitações cadastradas.
+                        </p>
+
+                    </div>
+
+
+
+                    <input
+                        type="text"
+                        id="pesquisaProjeto"
+                        class="pesquisa"
+                        placeholder="Buscar projeto..."
+                    >
+
+                </div>
+
+
+
+                <div class="tabela-container">
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Projeto
+                                </th>
+
+                                <th>
+                                    Solicitante
+                                </th>
+
+                                <th>
+                                    Responsável
+                                </th>
+
+                                <th>
+                                    Prioridade
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Prazo
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+
+                        <tbody id="tabelaProjetos">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             QUADRO DE PRODUÇÃO
+        ========================================= -->
+
+        <section
+            id="quadro"
+            class="pagina"
+        >
+
+
+            <div class="titulo-quadro">
+
+                <h2>
+                    Quadro de Produção
+                </h2>
+
+                <p>
+                    Acompanhe cada projeto pelas etapas da fábrica de software.
+                </p>
+
+            </div>
+
+
+
+            <div
+                id="kanban"
+                class="kanban"
+            >
+            </div>
+
+        </section>
+
+
+
+        <!-- ========================================
+             DETALHES DO PROJETO
+        ========================================= -->
+
+        <section
+            id="detalhes"
+            class="pagina"
+        >
+
+
+            <button
+                class="voltar"
+                data-ir="projetos"
+                type="button"
+            >
+                ← Voltar para Projetos
+            </button>
+
+
+            <div id="detalhesProjeto">
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         NOTIFICAÇÃO
+    ========================================= -->
+
+    <div
+        id="notificacao"
+        class="notificacao"
+    >
+    </div>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+         DEIXAR NO FINAL DO BODY
+    ========================================= -->
+
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>
